@@ -1,11 +1,19 @@
+"use client";
 import logo from "./assets/loicw.jpg";
 import Image from "next/image";
 import { PT_Sans } from "next/font/google";
-import { FaLinkedin, FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaTwitter,
+  FaInstagram,
+  FaBars,
+} from "react-icons/fa";
 import machine from "./assets/machine.jpg";
 import cloud from "./assets/cloud.jpg";
 import scalable from "./assets/scalable.jpg";
 import trends from "./assets/mobiletrends.jpg";
+import { useState } from "react";
 
 const ptSans = PT_Sans({
   subsets: ["latin"],
@@ -13,10 +21,86 @@ const ptSans = PT_Sans({
 });
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="px-6">
       <div className={ptSans.className}>
-        <nav className="w-full py-3 flex flex-row justify-between items-center">
+        <nav className="w-full py-3 sm:hidden justify-between flex flex-row items-center">
+          <Image
+            src={logo}
+            alt="Loic Writes"
+            className="w-16 h-16 rounded-full"
+          />
+          <div className="lg:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle Menu"
+              className="text-white hover:text-gray focus:outline-none"
+            >
+              <FaBars size={35} />
+            </button>
+          </div>
+          <div
+    className={`${
+      isMenuOpen ? "flex" : "hidden"
+    } lg:flex flex-col lg:flex-row lg:space-x-12 items-end px-6 space-y-4 lg:space-y-0 font-light text-lg hover:cursor-pointer absolute lg:relative top-16 lg:top-auto left-0 lg:left-auto bg-black text-white lg:bg-transparent w-full lg:w-auto py-4 lg:py-0 shadow-md lg:shadow-none`}
+  >
+    <p>All Blogs</p>
+    <div className="h-[0.5px] w-full bg-white mt-10"></div>
+    <p>About</p>
+    <div className="h-[0.5px] w-full bg-white mt-10"></div>
+    <p>Categories</p>
+    <div className="h-[0.5px] w-full bg-white mt-10"></div>
+    <div
+    className={`${
+      isMenuOpen ? "flex" : "hidden"
+    } lg:flex flex-row space-x-20 mt-4 lg:mt-0`}
+  >
+    <a
+      href="https://www.linkedin.com/in/your-profile"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn"
+      className="text-blue-700 hover:text-blue-900"
+    >
+      <FaLinkedin size={30} />
+    </a>
+    <a
+      href="https://github.com/your-profile"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub"
+      className="text-gray-800 hover:text-black"
+    >
+      <FaGithub size={30} />
+    </a>
+    <a
+      href="https://twitter.com/your-profile"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Twitter"
+      className="text-blue-500 hover:text-blue-700"
+    >
+      <FaTwitter size={30} />
+    </a>
+    <a
+      href="https://instagram.com/your-profile"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+      className="text-pink-600 hover:text-pink-800"
+    >
+      <FaInstagram size={30} />
+    </a>
+  </div>
+  </div>
+        </nav>
+        <nav className="w-full py-3 hidden sm:flex flex-row justify-between items-center">
           <Image
             src={logo}
             alt="Loic Writes"
@@ -67,33 +151,37 @@ export default function Home() {
           </div>
         </nav>
         <div className="h-[0.5px] w-full bg-white mt-10"></div>
-        <div className="w-full justify-center mx-auto pl-10">
-          <div className="w-fit ml-4">
-          <h1 className="font-extrabold text-[250px]">LOIC WRITES</h1>
-          </div>
+        <div className="w-full">
+          <h1 className="font-extrabold w-fit text-[40px] sm:text-[90px] md:text-[250px] mx-auto">
+            LOIC WRITES
+          </h1>
         </div>
         <div className="h-[0.5px] w-full bg-white"></div>
-        <div>
-          <div className="flex flex-row space-x-20 mt-10 w-full pl-10">
+        <div className="w-full">
+          <div className="flex w-fit mx-auto flex-col items-center md:flex-row md:space-x-20 mt-10 md:pl-10">
             <div>
               <Image
                 src={trends}
                 alt="Mobile Trends"
-                className="h-[380px] w-[700px] rounded-md"
+                className="w-[300px] h-[168px] sm:h-[380px] sm:w-[700px] rounded-md"
               />
-              <p className="text-[#5e5e5e] font-bold mt-4">January 10, 2025</p>
-              <h1 className="font-semibold text-2xl mt-5">
-                The Evolution of Mobile App Development: Trends to Watch
-              </h1>
-              <p className="font-extralight w-[680px] line-clamp-3 mt-6 text-lg">
-                Mobile app development is constantly evolving. In this post,
-                we’ll dive into the latest trends shaping the industry, from AI
-                integration to cross-platform frameworks, and discuss what
-                developers should keep an eye on for the future.
-              </p>
+              <div className="ml-10">
+                <p className="text-[#5e5e5e] font-bold mt-4">
+                  January 10, 2025
+                </p>
+                <h1 className="font-semibold text-xl w-96 sm:text-2xl mt-5">
+                  The Evolution of Mobile App Development: Trends to Watch
+                </h1>
+                <p className="font-extralight w-96 sm:w-[680px] line-clamp-2 sm:line-clamp-3 mt-6 text-lg">
+                  Mobile app development is constantly evolving. In this post,
+                  we’ll dive into the latest trends shaping the industry, from
+                  AI integration to cross-platform frameworks, and discuss what
+                  developers should keep an eye on for the future.
+                </p>
+              </div>
             </div>
             <div className="space-y-10">
-              <div className="flex flex-row space-x-6">
+              <div className="flex mt-10 flex-col sm:flex-row space-x-6">
                 <Image
                   src={cloud}
                   alt="Cloud Computing"
@@ -116,7 +204,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="h-[0.5px] w-full bg-white"></div>
-              <div className="flex flex-row space-x-6">
+              <div className="flex flex-col sm:flex-row space-x-6">
                 <Image
                   src={scalable}
                   alt="Scalable Application"
@@ -138,7 +226,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="h-[0.5px] w-full bg-white"></div>
-              <div className="flex flex-row space-x-6">
+              <div className="flex flex-col sm:flex-row space-x-6">
                 <Image
                   src={machine}
                   alt="Machine Learning"
@@ -165,14 +253,14 @@ export default function Home() {
           </div>
         </div>
         <div className="h-[0.5px] w-full bg-white mt-6 mb-10"></div>
-        <div className="w-full flex flex-row justify-between text-lg font-thin text-[#222222] px-28 mb-6">
-          <div className="flex flex-row space-x-10">
+        <div className="w-full flex flex-row justify-between text-lg font-thin text-[#222222] px-10 sm:px-28 mb-6">
+          <div className="flex flex-col md:flex-row space-x-10">
             <p>&copy; 2025 LOIC WRITES</p>
             <p>Terms</p>
             <p>Privacy</p>
             <p>Cookies</p>
           </div>
-          <div className="flex flex-row space-x-10">
+          <div className="flex flex-col md:flex-row space-x-10">
             <p>Typescript</p>
             <p>Javascript</p>
             <p>AWS</p>
