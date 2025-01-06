@@ -67,8 +67,8 @@ export default function Home() {
           </div>
         </nav>
         <div className="h-[0.5px] w-full bg-white mt-10"></div>
-        <div className="w-full justify-center mx-auto">
-          <div className="w-fit">
+        <div className="w-full justify-center mx-auto pl-10">
+          <div className="w-fit ml-4">
           <h1 className="font-extrabold text-[250px]">LOIC WRITES</h1>
           </div>
         </div>
@@ -115,6 +115,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+              <div className="h-[0.5px] w-full bg-white"></div>
               <div className="flex flex-row space-x-6">
                 <Image
                   src={scalable}
@@ -136,6 +137,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+              <div className="h-[0.5px] w-full bg-white"></div>
               <div className="flex flex-row space-x-6">
                 <Image
                   src={machine}
