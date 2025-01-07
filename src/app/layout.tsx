@@ -27,11 +27,13 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/loicw.jpg" type="image/jpg" />
       </head>
+  
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
+
     </html>
   );
 }

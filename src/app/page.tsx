@@ -28,9 +28,9 @@ export default function Home() {
   };
 
   return (
-    <div className="px-6">
+    <div className="px-6 dark dark:bg-[#0a0a0a]">
       <div className={ptSans.className}>
-        <nav className="w-full py-3 sm:hidden justify-between flex flex-row items-center">
+        <nav className="w-full dark:text-white text-black py-3 sm:hidden justify-between flex flex-row items-center">
           <Image
             src={logo}
             alt="Loic Writes"
@@ -150,14 +150,14 @@ export default function Home() {
             </a>
           </div>
         </nav>
-        <div className="h-[0.5px] w-full bg-white mt-10"></div>
+        <div className="h-[0.5px] w-full dark:bg-white bg-black mt-10"></div>
         <div className="w-full">
-          <h1 className="font-extrabold w-fit text-[40px] sm:text-[90px] md:text-[250px] mx-auto">
+          <h1 className="font-extrabold dark:text-white w-fit text-[40px] sm:text-[90px] md:text-[250px] mx-auto">
             LOIC WRITES
           </h1>
         </div>
-        <div className="h-[0.5px] w-full bg-white"></div>
-        <div className="w-full">
+        <div className="h-[0.5px] w-full dark:bg-white bg-black"></div>
+        <div className="w-full dark:text-white">
           <div className="flex w-fit mx-auto flex-col items-center md:flex-row md:space-x-20 mt-10 md:pl-10">
             <div>
               <Image
@@ -203,7 +203,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="h-[0.5px] w-full bg-white"></div>
+              <div className="h-[0.5px] w-full dark:bg-white bg-black"></div>
               <div className="flex flex-col sm:flex-row space-x-6">
                 <Image
                   src={scalable}
@@ -225,7 +225,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="h-[0.5px] w-full bg-white"></div>
+              <div className="h-[0.5px] w-full dark:bg-white bg-black"></div>
               <div className="flex flex-col sm:flex-row space-x-6">
                 <Image
                   src={machine}
@@ -252,7 +252,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="h-[0.5px] w-full bg-white mt-6 mb-10"></div>
+        <div className="h-[0.5px] w-full dark:bg-white bg-black mt-6 mb-10"></div>
         <div className="w-full flex flex-row justify-between text-lg font-thin text-[#222222] px-10 sm:px-28 mb-6">
           <div className="flex flex-col md:flex-row space-x-10">
             <p>&copy; 2025 LOIC WRITES</p>
