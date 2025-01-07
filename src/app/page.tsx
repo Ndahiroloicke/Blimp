@@ -8,6 +8,8 @@ import {
   FaTwitter,
   FaInstagram,
   FaBars,
+  FaMoon,
+  FaSun
 } from "react-icons/fa";
 import machine from "./assets/machine.jpg";
 import cloud from "./assets/cloud.jpg";
@@ -27,8 +29,14 @@ export default function Home() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const [isDark, setisDark]  = useState(false);
+
+  const toggleDark = () => {
+    setisDark(!isDark)
+  }
+
   return (
-    <div className="px-6 dark dark:bg-[#0a0a0a]">
+    <div className={isDark ? "px-6 dark dark:bg-white " : "px-6 bg-black"}>
       <div className={ptSans.className}>
         <nav className="w-full dark:text-white text-black py-3 sm:hidden justify-between flex flex-row items-center">
           <Image
@@ -40,65 +48,74 @@ export default function Home() {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Menu"
-              className="text-white hover:text-gray focus:outline-none"
+              className=" text-white dark:text-black hover:text-gray focus:outline-none"
             >
               <FaBars size={35} />
             </button>
           </div>
           <div
-    className={`${
-      isMenuOpen ? "flex" : "hidden"
-    } lg:flex flex-col lg:flex-row lg:space-x-12 items-end px-6 space-y-4 lg:space-y-0 font-light text-lg hover:cursor-pointer absolute lg:relative top-16 lg:top-auto left-0 lg:left-auto bg-black text-white lg:bg-transparent w-full lg:w-auto py-4 lg:py-0 shadow-md lg:shadow-none`}
-  >
-    <p>All Blogs</p>
-    <div className="h-[0.5px] w-full bg-white mt-10"></div>
-    <p>About</p>
-    <div className="h-[0.5px] w-full bg-white mt-10"></div>
-    <p>Categories</p>
-    <div className="h-[0.5px] w-full bg-white mt-10"></div>
-    <div
-    className={`${
-      isMenuOpen ? "flex" : "hidden"
-    } lg:flex flex-row space-x-20 mt-4 lg:mt-0`}
-  >
-    <a
-      href="https://www.linkedin.com/in/your-profile"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="LinkedIn"
-      className="text-blue-700 hover:text-blue-900"
-    >
-      <FaLinkedin size={30} />
-    </a>
-    <a
-      href="https://github.com/your-profile"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="GitHub"
-      className="text-gray-800 hover:text-black"
-    >
-      <FaGithub size={30} />
-    </a>
-    <a
-      href="https://twitter.com/your-profile"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Twitter"
-      className="text-blue-500 hover:text-blue-700"
-    >
-      <FaTwitter size={30} />
-    </a>
-    <a
-      href="https://instagram.com/your-profile"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Instagram"
-      className="text-pink-600 hover:text-pink-800"
-    >
-      <FaInstagram size={30} />
-    </a>
-  </div>
-  </div>
+            className={`${
+              isMenuOpen ? "flex" : "hidden"
+            } lg:flex flex-col lg:flex-row lg:space-x-12 items-end px-6 space-y-4 lg:space-y-0 font-light text-lg hover:cursor-pointer absolute lg:relative top-16 lg:top-auto left-0 lg:left-auto dark:bg-white bg-black dark:text-black text-white lg:bg-transparent w-full lg:w-auto py-4 lg:py-0 shadow-md lg:shadow-none`}
+          >
+            <p>All Blogs</p>
+            <div className="h-[0.5px] w-full dark:bg-black mt-10"></div>
+            <p>About</p>
+            <div className="h-[0.5px] w-full dark:bg-black mt-10"></div>
+            <p>Categories</p>
+            <div className="h-[0.5px] w-full dark:bg-black mt-10"></div>
+            <div
+              className={`${
+                isMenuOpen ? "flex" : "hidden"
+              } lg:flex flex-row space-x-20 mt-4 lg:mt-0`}
+            >
+              <a
+                href="https://www.linkedin.com/in/your-profile"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-blue-700 hover:text-blue-900"
+              >
+                <FaLinkedin size={30} />
+              </a>
+              <a
+                href="https://github.com/your-profile"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="text-gray-800 hover:text-black"
+              >
+                <FaGithub size={30} />
+              </a>
+              <a
+                href="https://twitter.com/your-profile"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+                className="text-blue-500 hover:text-blue-700"
+              >
+                <FaTwitter size={30} />
+              </a>
+              <a
+                href="https://instagram.com/your-profile"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-pink-600 hover:text-pink-800"
+              >
+                <FaInstagram size={30} />
+              </a>
+
+              {
+              isDark ? <button className="text-white dark:text-black" onClick={toggleDark}>
+              <FaMoon size={24} />
+            </button> : <button className="text-white dark:text-black" onClick={toggleDark}>
+              <FaSun size={24} />
+            </button>
+            }
+
+            </div>
+          </div>
         </nav>
         <nav className="w-full py-3 hidden sm:flex flex-row justify-between items-center">
           <Image
@@ -148,15 +165,22 @@ export default function Home() {
             >
               <FaInstagram size={24} />
             </a>
+            {
+              isDark ? <button className="text-black" onClick={toggleDark}>
+              <FaMoon size={24} />
+            </button> : <button className="text-white" onClick={toggleDark}>
+              <FaSun size={24} />
+            </button>
+            }
           </div>
         </nav>
-        <div className="h-[0.5px] w-full dark:bg-white bg-black mt-10"></div>
+        <div className="h-[0.5px] w-full dark:bg-black bg-white mt-10"></div>
         <div className="w-full">
-          <h1 className="font-extrabold dark:text-white w-fit text-[40px] sm:text-[90px] md:text-[250px] mx-auto">
+          <h1 className="font-extrabold text-white dark:text-black w-fit text-[40px] sm:text-[90px] md:text-[250px] mx-auto">
             LOIC WRITES
           </h1>
         </div>
-        <div className="h-[0.5px] w-full dark:bg-white bg-black"></div>
+        <div className="h-[0.5px] w-full dark:bg-white bg-white"></div>
         <div className="w-full dark:text-white">
           <div className="flex w-fit mx-auto flex-col items-center md:flex-row md:space-x-20 mt-10 md:pl-10">
             <div>
@@ -169,10 +193,10 @@ export default function Home() {
                 <p className="text-[#5e5e5e] font-bold mt-4">
                   January 10, 2025
                 </p>
-                <h1 className="font-semibold text-xl w-96 sm:text-2xl mt-5">
+                <h1 className="font-semibold dark:text-black text-white text-xl w-96 sm:text-2xl mt-5">
                   The Evolution of Mobile App Development: Trends to Watch
                 </h1>
-                <p className="font-extralight w-96 sm:w-[680px] line-clamp-2 sm:line-clamp-3 mt-6 text-lg">
+                <p className="font-extralight dark:text-black text-white w-96 sm:w-[680px] line-clamp-2 sm:line-clamp-3 mt-6 text-lg">
                   Mobile app development is constantly evolving. In this post,
                   we’ll dive into the latest trends shaping the industry, from
                   AI integration to cross-platform frameworks, and discuss what
@@ -191,10 +215,10 @@ export default function Home() {
                   <p className="text-[#5e5e5e] font-bold mt-2">
                     January 10, 2025
                   </p>
-                  <h1 className="font-semibold text-xl w-96 mt3">
+                  <h1 className="font-semibold dark:text-black text-white text-xl w-96 mt3">
                     Exploring the Power of Cloud Computing in Modern Software
                   </h1>
-                  <p className="w-96 line-clamp-2 mt-3">
+                  <p className="w-96 line-clamp-2 dark:text-black text-white mt-3">
                     Cloud computing has become a cornerstone of modern software
                     development. This article explores how cloud infrastructure,
                     services like AWS and Azure, and containerization
@@ -203,7 +227,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="h-[0.5px] w-full dark:bg-white bg-black"></div>
+              <div className="h-[0.5px] w-full dark:bg-black text-white bg-white"></div>
               <div className="flex flex-col sm:flex-row space-x-6">
                 <Image
                   src={scalable}
@@ -214,10 +238,10 @@ export default function Home() {
                   <p className="text-[#5e5e5e] font-bold mt-2">
                     January 10, 2025
                   </p>
-                  <h1 className="font-semibold text-xl w-96 mt-3">
+                  <h1 className="font-semibold dark:text-black text-white text-xl w-96 mt-3">
                     Best Practices for Building Scalable Web Applications
                   </h1>
-                  <p className="w-96 line-clamp-2 mt-3">
+                  <p className="w-96 line-clamp-2 dark:text-black text-white mt-3">
                     Scalability is crucial for the success of web applications.
                     In this post, we’ll outline essential best practices for
                     designing applications that can handle increasing user loads
@@ -225,7 +249,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="h-[0.5px] w-full dark:bg-white bg-black"></div>
+              <div className="h-[0.5px] w-full dark:bg-black bg-white "></div>
               <div className="flex flex-col sm:flex-row space-x-6">
                 <Image
                   src={machine}
@@ -236,11 +260,11 @@ export default function Home() {
                   <p className="text-[#5e5e5e] font-bold mt-2">
                     January 10, 2025
                   </p>
-                  <h1 className="font-semibold text-xl w-96 mt-3">
+                  <h1 className="font-semibold dark:text-black text-white text-xl w-96 mt-3">
                     An Introduction to Machine Learning: What Every Developer
                     Should Know
                   </h1>
-                  <p className="w-96 line-clamp-2 mt-3">
+                  <p className="w-96 line-clamp-2 dark:text-black text-white mt-3">
                     Machine learning is rapidly becoming an integral part of
                     software development. This post introduces key machine
                     learning concepts and how developers can start integrating
