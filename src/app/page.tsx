@@ -61,7 +61,6 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="h-[0.5px] w-full dark:bg-black text-white bg-white mt-10"></div>
             <div className="space-y-10">
               <div className="flex mt-10 flex-col sm:flex-row space-x-6">
                 <Image

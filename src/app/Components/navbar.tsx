@@ -127,10 +127,10 @@ const Navbar: React.FC<navbarProps> = ({
           alt="Loic Writes"
           className="w-16 h-16 rounded-full"
         />
-        <div className="flex flex-row space-x-12 font-light text-lg hover:cursor-pointer">
-          <p>All Blogs</p>
-          <p>About</p>
-          <p>Categories</p>
+        <div className="flex flex-row  space-x-12 font-light text-lg hover:cursor-pointer">
+          <p className="text-white dark:text-black">All Blogs</p>
+          <p className="text-white dark:text-black">About</p>
+          <p className="text-white dark:text-black">Categories</p>
         </div>
         <div className="flex flex-row space-x-6">
           <a
