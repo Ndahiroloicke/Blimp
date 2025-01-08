@@ -24,7 +24,7 @@ const About = () => {
     setisDark(!isDark);
   };
   return (
-    <div className={`${ptSans.className} px-6`}>
+    <div className={`${ptSans.className} px-6 bg-white h-screen dark:bg-black`}>
       <Navbar
         isDark={isDark}
         isMenuOpen={isMenuOpen}
@@ -37,24 +37,36 @@ const About = () => {
             <Image
               src={logo}
               alt="Loic Writes"
-              className="w-48 rounded-full shadow-[#989797] shadow-lg"
+              className="w-48 rounded-full dark:shadow-[#cacaca] shadow-[#989797] animate-bounce transition-shadow shadow-sm duration-[6000ms]"
             />
           </div>
         </div>
-        <div className="w-full mt-5 hover:shadow-lg hover:shadow-[#495b7c] hover:translate-y-7 hover:transition-all bg-slate-200 rounded-lg px-8 py-10">
+        <div className="w-full mt-5 hover:shadow-sm hover:shadow-[#495b7c] hover:translate-y-7 duration-500 hover:transition-all dark:bg-black bg-slate-200 rounded-lg px-8 py-10">
           <div>
-            <p className="text-xl">
-              Hi, I’m Loic! 👋 Welcome to Loic Writes—a space where I share my
-              thoughts, experiences, and ideas about life, technology, and
-              everything in between. I’m a software developer with a passion for
-              creating, learning, and exploring new perspectives. Whether it’s
-              diving deep into a tech stack, reflecting on personal growth, or
-              sharing my latest adventures, this blog is my canvas for
-              expression. When I’m not coding, you’ll find me exploring the
-              world of cybersecurity, tinkering with new tools, or enjoying a
-              good cup of coffee while brainstorming my next big idea. Thanks
-              for stopping by! Feel free to explore, comment, and connect. Let’s
-              build a community of curious minds together. 😊
+            <p className="text-xl dark:text-white text-black">
+              Hi, I’m Loic! 👋 Welcome to Loic Writes—a digital space where I
+              share my thoughts, experiences, and ideas on everything that
+              sparks my curiosity, from life and technology to personal growth
+              and creativity. This blog is a reflection of my journey as a
+              software developer, constantly evolving and learning in the
+              ever-changing world of tech. I’m deeply passionate about creating
+              meaningful solutions, whether it’s through building innovative
+              applications, exploring new tech stacks, or experimenting with
+              cutting-edge tools. Cybersecurity is another area that fascinates
+              me, as I believe understanding and protecting digital spaces is
+              more important than ever. When I’m not writing code or solving
+              problems, you’ll likely find me diving into new learning
+              opportunities, reading thought-provoking articles, or simply
+              enjoying a quiet moment with a good cup of coffee. I also love
+              brainstorming fresh ideas and thinking about ways to make a
+              positive impact through technology. Through Loic Writes, I aim to
+              share not only my technical knowledge but also my reflections on
+              personal growth, challenges, and successes. My hope is that this
+              blog becomes a space where curious minds can come together to
+              exchange ideas, inspire one another, and grow as a community.
+              Thank you for stopping by! Feel free to explore, share your
+              thoughts in the comments, and connect with me. Let’s build
+              something amazing together! 😊
             </p>
           </div>
         </div>

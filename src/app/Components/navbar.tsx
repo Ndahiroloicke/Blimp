@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { AppProps } from "next/app";
 import {
@@ -27,6 +27,9 @@ const Navbar: React.FC<navbarProps> = ({
   toggleMenu,
   toggleDark,
 }) => {
+  useEffect(()=>{
+    console.log(isDark)
+  },[toggleDark])
   return (
     <div>
       <nav className="w-full dark:text-white text-black py-3 sm:hidden justify-between flex flex-row items-center">
@@ -128,9 +131,9 @@ const Navbar: React.FC<navbarProps> = ({
           className="w-16 h-16 rounded-full"
         />
         <div className="flex flex-row  space-x-12 font-light text-lg hover:cursor-pointer">
-          <p className="text-white dark:text-black">All Blogs</p>
-          <p className="text-white dark:text-black">About</p>
-          <p className="text-white dark:text-black">Categories</p>
+          <Link href="/"><p className="text-white dark:text-black">All Blogs</p></Link>
+          <Link href="/about"><p className="text-white dark:text-black">About</p></Link>
+          <Link href="/categories"><p className="text-white dark:text-black">Categories</p></Link>
         </div>
         <div className="flex flex-row space-x-6">
           <a
